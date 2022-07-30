@@ -2,14 +2,24 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
+}
+.title{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .grid-container{
-    max-width: 960px;
+    width: 256px;
+    height: 256px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
+    border: 5px solid;
+    border-color: green;
 }
 .hovered{
     background-color: black;
+    opacity: .1;
 }
