@@ -8,6 +8,7 @@
  */
 const container = document.querySelector('.grid-container');
 const slider = document.querySelector("#myRange");
+const reset = document.querySelector("#reset");
 
 renderpixels(slider.value);
 
@@ -57,10 +58,23 @@ function pixelSizeChange(){
  */
 function colorGrid(){
     console.log("color the grid")
-    let currentOpacity = Number(this.style.backgroundColor.slice(-4, -1));
+    let currentOpacity = Number(this.style.backgroundColor.slice(-3, -1));
     if(currentOpacity == 0)
         this.style.backgroundColor = `rgba(0, 0, 0, .2)`
-    else if (currentOpacity <= 1) {
+    else if (currentOpacity < .8) {
             this.style.backgroundColor = `rgba(0, 0, 0, ${currentOpacity + 0.2})`;
     }
+}
+
+//event listener to reset the grid into a white background
+reset.addEventListener('click',resetGrid);
+
+function resetGrid(){
+    console.log("reset")
+
+    let gridPixelsReset = container.querySelectorAll('div');
+    gridPixelsReset.forEach(gridPixel=>{
+        gridPixel.style.backgroundColor = `rgba(0, 0, 0, 0)`;
+        console.log("Color " + gridPixel.style.backgroundColor)
+    })
 }
