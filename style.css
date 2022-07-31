@@ -3,16 +3,19 @@ body{
     justify-content: center;
     /* align-items: center; */
     flex-direction: column;
+    background-color:bisque
 }
 .title{
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: 0;
 }
 .container{
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding-bottom: 100px;
 }
 .options{
     display: flex;
@@ -24,6 +27,39 @@ body{
 .buttons-container{
     margin-bottom: 16px;
 }
+#myRange{
+    -webkit-appearance: none;  /* Override default CSS styles */
+    appearance: none;
+    width: 100%; /* Full-width */
+    height: 25px; /* Specified height */
+    background: #d3d3d3; /* Grey background */
+    outline: none; /* Remove outline */
+    opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
+    -webkit-transition: .2s; /* 0.2 seconds transition on hover */
+    transition: opacity .2s;
+    direction: rtl;
+}
+/* Mouse-over effects */
+#myRange:hover {
+    opacity: 1; /* Fully shown on mouse-over */
+  }
+  
+  /* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
+  #myRange::-webkit-slider-thumb {
+    -webkit-appearance: none; /* Override default look */
+    appearance: none;
+    width: 25px; /* Set a specific slider handle width */
+    height: 25px; /* Slider handle height */
+    background: #04AA6D; /* Green background */
+    cursor: pointer; /* Cursor on hover */
+  }
+  
+  #myRange::-moz-range-thumb {
+    width: 25px; /* Set a specific slider handle width */
+    height: 25px; /* Slider handle height */
+    background: #04AA6D; /* Green background */
+    cursor: pointer; /* Cursor on hover */
+  }
 .pixel-size-text{
     margin: 0;
 }
@@ -36,6 +72,7 @@ body{
     align-items: center;
     border: 5px solid;
     border-color: green;
+    background-color: white;
 }
 .hovered{
     background-color: black;
