@@ -1,6 +1,7 @@
+const container = document.querySelector('.grid-container');
 // create a div and append to the grid container
-var numOfBoxes = 12;
-var boxDimentions = 256 / numOfBoxes;
+var numOfBoxes = 64;
+var boxDimentions = 384 / numOfBoxes;
 var div = document.createElement("div");
 // div.style.border = "1px solid";
 div.style.width = `${boxDimentions}px`;
@@ -16,17 +17,17 @@ for (let i = 0; i < numOfBoxes; i++){
 }
 
 // on hover, change the color of the current hovered box
-document.querySelectorAll(".box").forEach(box=>{
-    box.addEventListener('mouseover',(e)=>{
-        if(e.target.style.backgroundColor.slice(-4, -1) < .1)
-            e.target.style.backgroundColor = 'rgba(0, 0, 0, 0.1)';
-        else{
-            let currentOpacity = Number(e.target.style.backgroundColor.slice(-4, -1));
-                console.log(currentOpacity);
-                if (currentOpacity <= 0.9) {
-                    e.target.style.backgroundColor = `rgba(0, 0, 0, ${currentOpacity + 0.1})`;
-                    console.log(e.target.style.backgroundColor);
-                }
-        }
-    })
-})
+// var gridpixel = document.querySelectorAll(".box");
+// gridpixel.forEach(gridpixel=>gridpixel.addEventListener('mouseover',colorGrid()))
+
+var gridPixels = container.querySelectorAll('div');
+gridPixels.forEach(gridPixel => gridPixel.addEventListener('mouseover', colorGrid));
+
+function colorGrid(){
+    let currentOpacity = Number(this.style.backgroundColor.slice(-4, -1));
+    if(currentOpacity == 0)
+        this.style.backgroundColor = `rgba(0, 0, 0, .1)`
+    else if (currentOpacity <= 0.9) {
+            this.style.backgroundColor = `rgba(0, 0, 0, ${currentOpacity + 0.1})`;
+    }
+}
